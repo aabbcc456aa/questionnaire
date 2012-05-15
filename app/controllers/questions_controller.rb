@@ -11,7 +11,6 @@ class QuestionsController < ApplicationController
     @question.answer5 = params[:ids]  || ""
     return unless request.post?
     @question.answer2 = params[:answer2]
-    puts "=="
     puts @question.answer5
     unless @question.valid?
       render :action => :new

@@ -19,8 +19,6 @@ class Question < ActiveRecord::Base
   end
 
   def answer1_must_11
-    puts "-------"
-    puts self.answer1 == "十一"
     self.errors.add(:answer1, "") if self.answer1 != "十一"
   end
 end
