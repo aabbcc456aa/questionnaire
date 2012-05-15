@@ -1,0 +1,133 @@
+<h2>调查项目</h2>
+<br></br>
+<%= form_for @question ,:url => :new_question , :method=> :post do |f| %>
+  <table class="form">
+    <tr>
+      <td class="index">01</td>
+      <td class="question">竞猜问答</td>
+      <td class="answer">
+        <div id="error"><%= "正确答案：<B>「十一」</B>".html_safe if @question.errors[:answer1][0] %></div>
+        <%= f.text_field :answer1,:class => "small" %> 
+      </td>
+    </tr>
+    <tr>
+      <td class="index">02</td>
+      <td class="question">您的职业（单选）</td>
+      <td class="answer">
+         <div id="error"><%= @question.errors[:answer2][0]  %></div>
+        <div id="error"><%= @question.errors[:answer2_remark][0]  %></div>
+        <div> 
+          <%= radio_button_tag :answer2,"1" ,@question.answer2 == "1", :class => "answer2" %>学生
+        </div>  
+        <div> 
+          <%= radio_button_tag :answer2,"2" ,@question.answer2 == "2", :class => "answer2" %>公务员（职务：
+          <%= f.text_field :answer2_remark,:class => "small" ,:disabled => !(@question.answer2 == "2"), :id => "answer2_remark_2"  %>）
+        </div>  
+        <div> 
+          <%= radio_button_tag :answer2,"3" ,@question.answer2 == "3", :class => "answer2"  %>公司职员
+        </div>  
+        <div> 
+          <%= radio_button_tag :answer2,"4" ,@question.answer2 == "4", :class => "answer2"  %>自由职业者
+        </div> 
+        <div> 
+          <%= radio_button_tag :answer2,"5" ,@question.answer2 == "5", :class => "answer2"  %>全职太太
+        </div>  
+        <div> 
+          <%= radio_button_tag :answer2,"6"  ,@question.answer2 == "6", :class => "answer2" %>其他
+          <%= f.text_field :answer2_remark,:class => "small" ,:disabled => !(@question.answer2 == "6") , :id => "answer2_remark_6" %>
+        </div> 
+      </td>
+    </tr>
+    <tr>
+      <td class="index">03</td>
+      <td class="question">电话号码</td>
+      <td class="answer">
+        <div id="error"><%= @question.errors[:answer3_citynum][0]  %></div>
+        <div id="error"><%= @question.errors[:answer3_phonenum][0]  %></div>
+        <div> <%= f.text_field :answer3_citynum,:class => "small" ,:placeholder => "区号"   %>-
+          <%= f.text_field :answer3_phonenum,:class => "small" ,:placeholder => "主机号"   %>-
+          <%= f.text_field :answer3_extennum,:class => "small"  ,:placeholder => "分机号"  %></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="index">04</td>
+      <td class="question">您的e-mail地址</td>
+
+      <td class="answer"> 
+        <div id="error"><%= @question.errors[:answer4_username][0]  %></div>
+        <%= f.text_field :answer4_username,:class => "long",:placeholder => "username@explame.com"  %></td>
+    </tr>
+    <tr>
+      <td class="index">05</td>
+      <td class="question">兴趣爱好（可复选）</td>
+      <td class="answer">
+        <div id="error"><%= @question.errors[:answer5_remark6][0]  %></div>
+         <div id="error"><%= @question.errors[:answer5_remark7][0]  %></div>
+        <div><%= check_box_tag 'ids[]', "1" ,@question.answer5.include?("1"), :class => "ids" ,:id => "ids_1"%>味道不好吃</div>
+        <div><%= check_box_tag 'ids[]', "2", @question.answer5.include?("2"), :class => "ids" ,:id => "ids_2"%>味道一般</div>
+        <div><%= check_box_tag 'ids[]', "3" ,@question.answer5.include?("3"), :class => "ids" ,:id => "ids_3"%>价格太贵</div>
+        <div><%= check_box_tag 'ids[]', "4" ,@question.answer5.include?("4"), :class => "ids" ,:id => "ids_4"%>量太少</div>
+        <div><%= check_box_tag 'ids[]', "5" ,@question.answer5.include?("5"), :class => "ids" ,:id => "ids_5"%>平时不太吃橡皮糖</div>
+        <div>
+          <%= check_box_tag 'ids[]', "6",@question.answer5.include?("6"), :class => "ids" ,:id => "ids_6" %>还是喜欢平时吃的橡皮糖（平时喜欢吃
+          <%= f.text_field :answer5_remark6,:class => "small" ,:disabled => !@question.answer5.include?("6") , :id => "answer05_ids_6" %>）
+        </div>      
+        <div>
+          <%= check_box_tag 'ids[]', "7" ,@question.answer5.include?("7"), :class => "ids" ,:id => "ids_7"%>
+          其他<%= f.text_field :answer5_remark7,:class => "small" ,:disabled => !@question.answer5.include?("7") , :id => "answer05_ids_7"%>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <%= submit_tag "提交" ,:class => "btn primary" %>
+<%end%>
+
+<script type="text/javascript">
+  $(".ids").click(function(){
+    var id = $(this).attr("id");
+    var checked = $(this).attr("checked");
+    if(checked == "checked"){
+      $("#answer05_" + id).attr("disabled",false);
+    }
+    else{
+      $("#answer05_" + id).attr("disabled",true);
+    }
+  })
+  
+  $(".answer2").click(function(){
+    var id = $(this).attr("id");
+    if(id == "answer2_2"){
+      $("#answer2_remark_2").attr("disabled",false);
+    }
+    else if(id == "answer2_6"){
+      $("#answer2_remark_6").attr("disabled",false);
+    }
+    else{
+      $("#answer2_remark_2").attr("disabled",true);
+      $("#answer2_remark_6").attr("disabled",true);
+    }
+  })
+</script>
+
+<style>
+  #error{
+    color: red;
+  }
+  .form{
+    background-color: #fff;
+
+  }
+  .index{
+    vertical-align: middle ;
+    width: 30px;
+    background-color: gold;
+  }
+  .question{
+    width: 150px;
+    vertical-align: middle ;
+    background-color: #ccc;
+  }
+  table tr td{
+    margin: 5px; 10px;
+  }
+</style>

@@ -1,0 +1,22 @@
+<h2>测试结果</h2>
+
+<table>
+  <tr>
+    <th>测试时间</th>
+    <th>竞猜答案</th>
+    <th>您的职业</th>
+    <th>电话号码</th>
+    <th>e-mail</th>
+    <th>兴趣爱好</th>
+  </tr>
+  <% @questions.each do  |question| %>
+    <tr>
+      <td><%= question.created_at   %></td>
+      <td><%= question.answer1 %></td>
+      <td><%= postion(question) %></td>  
+      <td><%= question.answer3_citynum %>-<%= question.answer3_phonenum %>-<%= question.answer3_extennum %></td>
+      <td><%= question.answer4_username %></td>
+      <td><%= like(question) %></td>
+    </tr>
+    <% end %>
+  </table>
