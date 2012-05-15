@@ -57,5 +57,5 @@ module Questionnaire
     config.assets.version = '1.0'
   end
 end
-Time::DATE_FORMATS[:default] = "%Y-%m-%d %H:%M:%S"
-Date::DATE_FORMATS[:default] = "%Y-%m-%d"
+#Time::DATE_FORMATS[:default] = "%Y-%m-%d %H:%M:%S"
+#Date::DATE_FORMATS[:default] = "%Y-%m-%d"

@@ -8,8 +8,8 @@ class Question < ActiveRecord::Base
   validate :answer1_must_11
   validates_presence_of :answer2 ,:message => "请选择"
   validates_presence_of :answer5_remark6, :if => proc{|t| t.answer5.include?("6") } ,:message => "请在备注框内填写文字"
-   validates_presence_of :answer5_remark7, :if => proc{|t| t.answer5.include?("7") } ,:message => "请在备注框内填写文字"
-#  validates_presence_of :answer2_remark, :if => proc{|t| t.answer2 == "6" ||t.answer2 == "2" } ,:message => "请在备注框内填写文字"
+  validates_presence_of :answer5_remark7, :if => proc{|t| t.answer5.include?("7") } ,:message => "请在备注框内填写文字"
+  #  validates_presence_of :answer2_remark, :if => proc{|t| t.answer2 == "6" ||t.answer2 == "2" } ,:message => "请在备注框内填写文字"
   validates_length_of :answer3_phonenum, :minimum=> 7, :maximum => 11, :message => "区号请输入7个以上11个以内文字"
   validates_length_of :answer3_citynum, :minimum=> 3, :maximum => 5, :message => "主机号请输入3个以上5个以内文字"
   validates_format_of :answer4_username, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :message => '邮箱格式不正确'
