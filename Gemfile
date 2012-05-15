@@ -11,7 +11,7 @@ gem 'mysql2'
 gem 'execjs'
 gem 'therubyracer'
 #客户端校验
-gem 'client_side_validations'
+#gem 'client_side_validations'
 #页面样式
 gem 'bootstrap-rails', :require => 'bootstrap-rails',
                               :git => 'git://github.com/xdite/bootstrap-rails.git'
