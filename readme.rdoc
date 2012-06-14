@@ -1,3 +1,4 @@
+test amend
 hi master  faster
 helooll dfdjlfjdlfd
 == Welcome to Rails
