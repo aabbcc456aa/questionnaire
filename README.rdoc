@@ -1,4 +1,4 @@
-hi master
+hi master  faster
 helooll dfdjlfjdlfd
 == Welcome to Rails
 
