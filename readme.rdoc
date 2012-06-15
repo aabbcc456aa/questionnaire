@@ -2,6 +2,7 @@ push to master
 dddddddddddddddddddddddddddddddddddd
 123456
 直接push到远程
+456123
 test amend
 hi master  faster
 helooll dfdjlfjdlfd
