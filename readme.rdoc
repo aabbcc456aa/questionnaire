@@ -1,3 +1,4 @@
+push to master
 123456
 直接push到远程
 test amend
