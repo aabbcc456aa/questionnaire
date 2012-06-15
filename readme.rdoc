@@ -1,4 +1,7 @@
+123456
 直接push到远程
+test amend
+hi master  faster
 helooll dfdjlfjdlfd
 开始测试远程合并
 == Welcome to Rails
