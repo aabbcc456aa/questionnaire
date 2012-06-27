@@ -1,3 +1,4 @@
+<<<<<<< HEAD:readme.rdoc
 push to master
 dddddddddddddddddddddddddddddddddddd
 123456
@@ -7,6 +8,12 @@ test amend
 hi master  faster
 helooll dfdjlfjdlfd
 开始测试远程合并
+=======
+lkjdlfkdlfjdlfjdlfj
+lkdlfjdlf
+:wq
+hi master
+>>>>>>> bb:README.rdoc
 == Welcome to Rails
 
 
